@@ -13,11 +13,11 @@
                         var string = this.responseText;
                         //document.getElementById("demo").innerHTML = string["name"];
                         var stringArray = string.split("/n")
-                        var objectArray;
-                        for(var i = 0; i < stringArray.length; i++){
-                            objectArray[i] = JSON.parse(stringArray[i])
-                        }
-                        alert(objectArray)
+//                         var objectArray;
+//                         for(var i = 0; i < stringArray.length; i++){
+//                             objectArray[i] = JSON.parse(stringArray[i])
+//                         }
+                        alert(stringArray)
                     }
                 };
                 xhttp.open("GET", "testing.json", true);
