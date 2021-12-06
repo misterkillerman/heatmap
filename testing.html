@@ -5,22 +5,22 @@
         <h2>Make a table based on JSON data.</h2>
 
         <div id="demo"></div>
-        <button type="button" onclick="loadXMLDoc()">Change Content</button>
 
         <script>
-        function loadXMLDoc() {
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var string = this.responseText;
-                //document.getElementById("demo").innerHTML = string["name"];
-                alert(string);
+            loadXMLDoc()
+            function loadXMLDoc() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var string = this.responseText;
+                        //document.getElementById("demo").innerHTML = string["name"];
+                        var object = JSON.parse(string);
+                        alert(object)
+                    }
+                };
+                xhttp.open("GET", "testing.json", true);
+                xhttp.send();
             }
-          };
-          xhttp.open("GET", "testing.json", true);
-          xhttp.send();
-        }
         </script>
-
     </body>
 </html>
