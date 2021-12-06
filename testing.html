@@ -14,7 +14,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 var object = this.responseText;
                 var string = JSON.stringify(object);
-                alert(typeOf(object));
+                alert(typeof(object));
             }
           };
           xhttp.open("GET", "testing.json", true);
