@@ -14,7 +14,7 @@
                         //document.getElementById("demo").innerHTML = string["name"];
                         var stringArray = string.split("/n")
                         var objectArray;
-                        for(int i = 0; i < stringArray.length; i++){
+                        for(var i = 0; i < stringArray.length; i++){
                             objectArray[i] = JSON.parse(stringArray[i])
                         }
                         alert(objectArray)
