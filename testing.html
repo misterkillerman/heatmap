@@ -13,9 +13,7 @@
           xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var string = this.responseText;
-                var object = JSON.parse(string);
-                var name = object["name"];
-                document.getElementById("demo").innerHTML = name;
+                document.getElementById("demo").innerHTML = string.name;
             }
           };
           xhttp.open("GET", "testing.json", true);
