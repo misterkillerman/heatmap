@@ -12,8 +12,12 @@
                     if (this.readyState == 4 && this.status == 200) {
                         var string = this.responseText;
                         //document.getElementById("demo").innerHTML = string["name"];
-                        var object = JSON.parse(string);
-                        alert(object)
+                        var stringArray = string.split("/n")
+                        var objectArray;
+                        for(int i = 0; i < stringArray.length; i++){
+                            objectArray[i] = JSON.parse(stringArray[i])
+                        }
+                        alert(objectArray)
                     }
                 };
                 xhttp.open("GET", "testing.json", true);
