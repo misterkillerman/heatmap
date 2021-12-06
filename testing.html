@@ -2,9 +2,30 @@
 <html>
     <body>
         <h1> testing </h1>
+        <div class="form">
+            <p>
+                Name:
+                <input type="text" id="name" value="Sara">
+                Age:
+                <input type="number" id="age" value="40">
+                Gender:
+                <select id="gender">
+                    <option value="male" selected>female</option>
+                    <option value="male">male</option>
+                </select>
+            </p>
+        </div>
 
         <script>
             loadXMLDoc()
+            
+            function toString(){
+                var name = document.getElementById("name").value;
+                var age = document.getElementById("age").value;
+                var gender = document.getElementById("gender").value;
+                var string ='{"name":"' + name + '","age":' + age + ',"gender":"' + gender +'"};'
+                return string;
+            }
             
             function loadXMLDoc() {
                 var xhttp = new XMLHttpRequest();
@@ -17,7 +38,8 @@
                         for(var i = 0; i < stringArray.length; i++){
                             objectArray[i] = JSON.parse(stringArray[i])
                         }
-                        alert(objectArray[0].name)
+                        objectArray.push(JSON.parse(toString());
+                        alert(objectArray[2].name)
                     }
                 };
                 xhttp.open("GET", "testing.json", true);
