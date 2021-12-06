@@ -17,7 +17,7 @@
                         for(var i = 0; i < stringArray.length; i++){
                             objectArray[i] = JSON.parse(stringArray[i])
                         }
-                        alert(objectArray)
+                        alert(objectArray[0].name)
                     }
                 };
                 xhttp.open("GET", "testing.json", true);
