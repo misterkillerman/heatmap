@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1> testing </h1>
-        <div class="form">
-            <p>
-                Name:
-                <input type="text" id="name" value="Sara">
-                Age:
-                <input type="number" id="age" value="40">
-                Gender:
-                <select id="gender">
-                    <option value="male" selected>female</option>
-                    <option value="male">male</option>
-                </select>
-            </p>
-        </div>
+        <p>
+            hours slept:
+            <input type="number" value="8" id="hours">
+        </p>
+        <p>
+            date:
+            <input type="date" id="date">
+        </p>
 
         <script>
             loadXMLDoc()
             
-            function toString(){
-                var name = document.getElementById("name").value;
-                var age = document.getElementById("age").value;
-                var gender = document.getElementById("gender").value;
-                var string ='{"name":"' + name + '","age":' + age + ',"gender":"' + gender +'"}'
-                return string;
+            date()
+            function date(){
+                var now = new Date();
+                var day = ("0" + now.getDate()).slice(-2);
+                var month = ("0" + (now.getMonth() + 1)).slice(-2);
+                var today = now.getFullYear()+"-"+(month)+"-"+(day);
+                document.getElementById("date").value = today;
+            }
+            
+            function convertToJSON() {
+                var hours = document.getElementById('hours').value;
+                var date = document.getElementById('date').value;
+                var jsonObject = {
+                    "date": date,
+                    "hours": hours,
+                }
+                document.getElementById('demo2').innerHTML = JSON.stringify(jsonObject);
+                return jsonObject;
             }
             
             function loadXMLDoc() {
@@ -32,17 +38,16 @@
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         var string = this.responseText;
-                        //document.getElementById("demo").innerHTML = string["name"];
-                        var stringArray = string.split(";")
-                        var objectArray = [];
+                        var stringArray = string.split("\n")
+                        var obj = [];
                         for(var i = 0; i < stringArray.length; i++){
-                            objectArray[i] = JSON.parse(stringArray[i])
+                            obj.push(JSON.parse(stringArray[i]);
                         }
-                        objectArray.push(JSON.parse(toString()));
-                        alert(objectArray[0].name)
+                        obj.push(JSON.parse(convertToJSON()));
+                        alert(obj[obj.length - 1].date)
                     }
                 };
-                xhttp.open("GET", "testing.json", true);
+                xhttp.open("GET", "index.txt", true);
                 xhttp.send();
             }
         </script>
