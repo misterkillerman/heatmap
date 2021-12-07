@@ -39,13 +39,7 @@
                             objectArray[i] = JSON.parse(stringArray[i])
                         }
                         objectArray.push(JSON.parse(toString()));
-                        const fs = require('fs');
-                        fs.writeFile('testing.json',objectArray[objectArray.length - 1], err =>{
-                            if(err){
-                                console.error(err);
-                                return
-                            }
-                        });
+                        alert(objectArray[0].name)
                     }
                 };
                 xhttp.open("GET", "testing.json", true);
