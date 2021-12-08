@@ -9,6 +9,7 @@
             date:
             <input type="date" id="date">
         </p>
+        <hr>
         <div id="demo"></div>
 
         <script>
@@ -44,7 +45,7 @@
                         for(var i = 0; i < stringArray.length-1; i++){
                             obj.push(JSON.parse(stringArray[i]));
                         }
-                        obj.push(JSON.parse(convertToJSON()));
+                        obj.push(convertToJSON());
                         alert(obj[obj.length - 1].date)
                     }
                 };
