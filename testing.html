@@ -9,6 +9,7 @@
             date:
             <input type="date" id="date">
         </p>
+        <div id="demo"></div>
 
         <script>
             loadXMLDoc()
@@ -29,7 +30,7 @@
                     "date": date,
                     "hours": hours,
                 }
-                document.getElementById('demo2').innerHTML = JSON.stringify(jsonObject);
+                document.getElementById('demo').innerHTML = JSON.stringify(jsonObject);
                 return jsonObject;
             }
             
